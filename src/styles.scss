@@ -1,0 +1,98 @@
+/* You can add global styles to this file, and also import other style files */
+// Variables SCSS
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+// Colores
+$midnightBlue: #01102C;
+$black-color: #000;
+$white-color: #ffff;
+$gray-color: #BCBCBC;
+$penn-blue: #001C4F;
+$lapiz-lazuli-color: #265C7E;
+$red-color: #FF0000;
+$onyx-color: #3c3c3c21;
+$honolulu-blue-color: #0e76a8;
+$tropical-indigo-color: #7381FF;
+$electric-blue-color: #6AF0FF;
+$argentinian-blue-color: #5DB9FF;
+$cornflower-blue-color: #6495ED;
+$alice-blue-color: #F5FBFF;
+$slate-gray-color: #3A605D;
+$mint-color: #3CC2A1;
+$dark-cyan: #23958C;
+$celeste-color: #B3EAEB;
+
+// Grosor de letra
+$T200: 200;
+$T400: 400;
+$T500: 500;
+$T600: 600;
+$T700: 700;
+
+// Tipo de letra
+$Poppins: "Poppins", sans-serif;
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.body-content{
+  min-height: 100vh;
+  font-family: $Poppins;
+  background: linear-gradient(90deg, #b7ebec,#f9f3c8);
+}
+
+h1 {
+  font-size: 3.5rem !important;
+  color: $lapiz-lazuli-color !important;
+  font-weight: $T500 !important;
+}
+
+p {
+  color: $slate-gray-color !important;
+  justify-self: center !important;
+  font-weight: $T500;
+}
+
+/* Animaciones */
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.fast {
+  -webkit-animation-duration: 0.4s;
+  animation-duration: 0.4s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+/* Importing Datepicker SCSS file. */
+@import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
+
+html, body { height: 100%; }

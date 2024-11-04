@@ -1,0 +1,117 @@
+<div *ngIf="!loading"  class="background-carousel-wrapper">
+
+  <div id="backgroundCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000" data-bs-pause="false">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="/assets/bg-auth/bg_1.jpeg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="/assets/bg-auth/bg_2.jpeg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="/assets/bg-auth/bg_3.jpeg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="/assets/bg-auth/bg_4.jpeg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="/assets/bg-auth/bg_5.png" class="d-block w-100" alt="...">
+      </div>
+    </div>
+  </div>
+
+  <div class="content-wrapper">
+    <div class="sign-up-content">
+
+      <div class="left-content">
+        <h4><span>Inka</span>Pathways</h4>
+        <h2 class="fw-semibold text-center my-3">Empieza tu viaje perfecto</h2>
+        <form [formGroup]="form" (ngSubmit)="addUser()" class="content-form">
+          <div class="content-input-info">
+            <div>
+              <mat-form-field  appearance="fill">
+                <mat-label class="label-font">Nombre: </mat-label>
+                <input type="text" placeholder="Nombre" matInput autocomplete="off" formControlName="name" required>
+                <mat-error *ngIf="form.get('name')?.invalid">{{getErrorMessage('name')}}</mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label class="label-font">Gmail: </mat-label>
+                <input type="email" placeholder="user@gmail.com" matInput autocomplete="off" formControlName="email" required>
+                <mat-error *ngIf="form.get('email')?.invalid">{{getErrorMessage('email')}}</mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="d-flex flex-column">
+              <mat-form-field appearance="fill">
+                <mat-label class="label-font">Apellido: </mat-label>
+                <input type="text" placeholder="Apellido" matInput autocomplete="off" formControlName="last_name" required>
+                <mat-error *ngIf="form.get('last_name')?.invalid">{{getErrorMessage('last_name')}}</mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label class="label-font">Selecciona tu región</mat-label>
+                <mat-select formControlName="region">
+                  <mat-option [value]="'Junin'">Junin</mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('region')?.hasError('required')">
+                  Escoge tu región
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="d-flex flex-column">
+            <mat-form-field appearance="fill">
+              <mat-label class="label-font">Contraseña:</mat-label>
+              <input [type]="hidePassword ? 'password' : 'text'" placeholder="***********" matInput autocomplete="off" formControlName="password" required>
+              <button mat-icon-button type="button" matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+                <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+              <mat-error *ngIf="form.get('password')?.invalid">{{getErrorMessage('password')}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label class="label-font">Confirmar Contraseña:</mat-label>
+              <input [type]="hideRepassword ? 'password' : 'text'" placeholder="***********" matInput autocomplete="off" formControlName="repassword" required>
+              <button mat-icon-button type="button" matSuffix (click)="hideRepassword = !hideRepassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideRepassword">
+                <mat-icon>{{hideRepassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+              <mat-error *ngIf="form.get('repassword')?.invalid">{{getErrorMessage('repassword')}}</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="d-flex flex-column">
+            <button type="submit" mat-raised-button color="primary" class="mb-3" [disabled]="form.invalid">
+              Registrarme
+            </button>
+
+            <span class="align-self-end">¿Ya tienes una cuenta? <a routerLink="/auth/sign-in">¡Inicia Sesión!</a></span>
+          </div>
+
+        </form>
+      </div>
+      <div id="imgCarousel" class="carousel slide carousel-fade right-content" data-bs-ride="carousel" data-bs-interval="3000" data-bs-pause="false">
+        <div class="d-flex justify-content-start align-items-center">
+          <div class="carousel-inner">
+            <div class="carousel-item active ">
+              <img src="/assets/bg-auth/ubication/ubi_1.png" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="/assets/bg-auth/ubication/ubi_2.png" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="/assets/bg-auth/ubication/ubi_3.png" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="/assets/bg-auth/ubication/ubi_4.png" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="/assets/bg-auth/ubication/ubi_5.png" class="d-block w-100" alt="...">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

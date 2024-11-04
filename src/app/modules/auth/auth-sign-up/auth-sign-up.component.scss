@@ -1,0 +1,154 @@
+@import 'src/styles';
+
+h4 {
+  color: $black-color;
+  text-align: center;
+  font-family: $Poppins;
+  font-size: 20px;
+  font-style: normal;
+  line-height: normal;
+  font-weight: $T600;
+  margin: -17px auto !important;
+  span {
+    color: $red-color
+  }
+}
+
+h2 {
+  color: $black-color;
+  text-align: center;
+  font-family: $Poppins;
+  font-size: 38px;
+  font-style: normal;
+  font-weight: $T700;
+  line-height: normal;
+}
+
+.label-font {
+  font-family: $Poppins;
+}
+
+.sign-up-content {
+  height: 100%;
+  display: grid;
+  grid-template-columns:  minmax(300px, 520px) minmax(400px, 700px);
+  border-radius: 30px;
+  background: #FAFAFA;
+  background-blend-mode: hue, normal;
+  box-shadow: 0 10px 50px rgb(0 0 0 / 80%);
+  backdrop-filter: blur(10px);
+}
+
+.left-content {
+  display: grid;
+  grid-template-columns: auto;
+  justify-content: center;
+  grid-template-rows: 1fr;
+  padding: 50px 60px;
+}
+
+.content-form {
+  width: 100%;
+
+  a {
+    font-family: $Poppins;
+    font-style: normal;
+    font-weight: $T600;
+    line-height: normal;
+    color: $penn-blue;
+    cursor: pointer;
+  }
+}
+
+.content-input-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  column-gap: 20px;
+}
+
+.right-content {
+  border-radius: 0 26px 26px 0;
+  box-shadow: 0 0 12px 0 rgba(255, 255, 255, 0.37);
+  display: grid;
+}
+
+#imgCarousel {
+
+  .carousel-inner {
+    position: fixed;
+    width: 56.2%;
+  }
+
+  .carousel-item {
+    height: 617px;
+  }
+
+  .carousel-item img {
+    border-radius: 30px;
+    object-fit: cover; /* Para que las imágenes se ajusten bien al tamaño */
+    height: 100%;
+  }
+
+}
+
+.background-carousel-wrapper {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Carousel actúa como fondo */
+  #backgroundCarousel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Detrás del contenido */
+
+    .carousel-item {
+      height: 100vh; /* Hace que las imágenes ocupen todo el fondo */
+    }
+
+    .carousel-item img {
+      object-fit: cover; /* Para que las imágenes se ajusten bien al tamaño */
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  /* Contenido superpuesto */
+  .content-wrapper {
+    position: relative;
+    z-index: 1; /* Por encima del fondo */
+  }
+}
+
+/* Pantallas medianas como laptops */
+@media (max-width: 1624px) {
+  .sign-up-content {
+    grid-template-columns:  minmax(300px, 560px) minmax(400px, 700px);
+  }
+
+  .left-content {
+    padding: 30px 40px;
+  }
+
+  #imgCarousel {
+
+    .carousel-inner {
+      position: fixed;
+      width: 54.3%;
+    }
+
+    .carousel-item {
+      height: 580px;
+    }
+
+  }
+}
+
+

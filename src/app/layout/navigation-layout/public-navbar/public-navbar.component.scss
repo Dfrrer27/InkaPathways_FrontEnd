@@ -1,0 +1,58 @@
+@import 'src/styles';
+
+.navbar {
+  padding: 1rem 2.5rem 0 2.5rem;
+  font-size: 1.5rem;
+}
+
+.navbar-brand {
+  span {
+    color: #e53935; /* Color rojo para "Inka" */
+  }
+  font-size: 1.7rem;
+  font-weight: $T600;
+  color: $penn-blue;
+}
+
+.nav-link {
+  color: $lapiz-lazuli-color;
+  margin-right: 1rem;
+}
+
+.nav-link:hover {
+  color: $honolulu-blue-color;
+}
+
+.btn-contact {
+  box-sizing: border-box;
+  appearance: none;
+  background-color: transparent;
+  border: 1px solid $penn-blue;
+  border-radius: 0.3em;
+  color: $lapiz-lazuli-color;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-self: center;
+  line-height: 1;
+  margin: 20px;
+  padding: 0.6em 0.7em;
+  text-decoration: none;
+  text-align: center;
+
+  &:hover,
+  &:focus {
+    color: $dark-cyan;
+    outline: 0;
+  }
+}
+
+.first {
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    border: 1px solid $penn-blue;
+    transform: scale(1.05);
+  }
+}
+
+
