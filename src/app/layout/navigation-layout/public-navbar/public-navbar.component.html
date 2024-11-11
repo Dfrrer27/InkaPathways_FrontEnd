@@ -12,16 +12,16 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav ml-auto align-items-center">
         <li class="nav-item">
-          <a class="nav-link" href="#">Nuestra Tecnología</a>
+          <a class="nav-link" role="button" (click)="goToSection('tecnologia')">Nuestra Tecnología</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Equipo</a>
+          <a class="nav-link" role="button" (click)="goToSection('equipo')">Equipo</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/auth/sign-up">Empezar</a>
         </li>
         <li class="nav-item">
-          <a class="btn btn-contact first" href="#">Contáctanos</a>
+          <a class="btn btn-contact first" routerLink="/contact-us">Contáctanos</a>
         </li>
       </ul>
     </div>

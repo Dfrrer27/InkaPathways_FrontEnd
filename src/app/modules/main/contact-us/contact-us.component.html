@@ -1,1 +1,56 @@
-<p>contact-us works!</p>
+<div class="container-contact">
+  <div class="content-contact-us container animated fadeIn">
+    <div class="left-content">
+      <div class="mt-5">
+        <h2>Comunicate con Nosotros</h2>
+        <p>¿Alguna pregunta u observación? ¡El equipo de InkaPathways estará encantado de escucharle y responder sus dudas o inquietudes!</p>
+        <div class="d-flex justify-content-end pe-5">
+          <img src="/assets/img/circle.png">
+        </div>
+      </div>
+    </div>
+    <div class="right-content">
+      <form [formGroup]="form" (ngSubmit)="sendMessage()" class="w-100 mt-3">
+
+          <div class="content-input-info">
+            <div class="d-flex flex-column">
+              <mat-form-field appearance="fill">
+                <mat-label class="label-font">Nombres: </mat-label>
+                <input type="text" matInput autocomplete="off" formControlName="name" required>
+                <mat-error *ngIf="form.get('name')?.invalid">{{getErrorMessage('name')}}</mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill" class="mt-2">
+                <mat-label class="label-font">Gmail: </mat-label>
+                <input type="email" matInput autocomplete="off" formControlName="gmail" required>
+                <mat-error *ngIf="form.get('email')?.invalid">{{getErrorMessage('gmail')}}</mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="d-flex flex-column">
+              <mat-form-field appearance="fill">
+                <mat-label class="label-font">Apellidos: </mat-label>
+                <input type="text" matInput autocomplete="off" formControlName="last_name" required>
+                <mat-error *ngIf="form.get('last_name')?.invalid">{{getErrorMessage('last_name')}}</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="d-flex flex-column">
+            <mat-form-field  appearance="fill" class="mt-2">
+              <mat-label class="label-font">Mensaje: </mat-label>
+              <input type="text" placeholder="Escribe tu mensaje" matInput autocomplete="off" formControlName="message" required>
+              <mat-error *ngIf="form.get('message')?.invalid">{{getErrorMessage('message')}}</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="d-flex justify-content-end mt-3">
+            <button type="submit" mat-raised-button color="primary" class="mb-3 rounded">
+              Enviar Mensaje
+            </button>
+            <img class="bg-img" src="/assets/img/letter_send.png">
+          </div>
+
+      </form>
+    </div>
+  </div>
+</div>
