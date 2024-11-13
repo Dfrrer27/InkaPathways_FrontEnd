@@ -11,6 +11,13 @@ export class MainIaComponent {
   isEditable = false;
 
   constructor(private _formBuilder: FormBuilder) {}
-  firstFormGroup: FormGroup = this._formBuilder.group({firstCtrl: ['']});
-  secondFormGroup: FormGroup = this._formBuilder.group({secondCtrl: ['']});
+
+  Step: number = 1;
+  PapersSave: any = {
+    stepOne: {}
+  };
+
+  Save($event: any) {
+
+  }
 }

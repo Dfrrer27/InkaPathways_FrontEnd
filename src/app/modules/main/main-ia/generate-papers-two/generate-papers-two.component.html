@@ -1,0 +1,28 @@
+<h4 class="text-secondary pb-2">Paso 2/5</h4>
+<h2>Escoge un mes</h2>
+<p>Escoge el mes para darte la información de los eventos que ocurren en dicho mes con relación a la región seleccionada.</p>
+<hr>
+<form [formGroup]="form" (ngSubmit)="Save()">
+
+  <mat-form-field appearance="outline" class="w-50 mt-4">
+    <mat-label>Escoge el mes</mat-label>
+    <mat-select formControlName="mes">
+      <mat-option [value]="'Enero'">Enero</mat-option>
+      <mat-option [value]="'Febrero'">Febrero</mat-option>
+    </mat-select>
+    <mat-error *ngIf="form.get('mes')?.hasError('required')">
+      Escoge el mes para cuando vas a viajar
+    </mat-error>
+  </mat-form-field>
+
+  <div class="d-flex flex-row justify-content-end gap-3 mt-5">
+    <button mat-raised-button color="accent" class="mb-3 w-25 rounded" (click)="Back()">
+      Volver
+    </button>
+    <button type="submit" mat-raised-button color="primary" class="mb-3 w-25 rounded" [disabled]="form.invalid">
+      Siguiente
+    </button>
+  </div>
+
+</form>
+

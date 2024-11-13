@@ -48,6 +48,11 @@ body::-webkit-scrollbar {
   background: linear-gradient(90deg, #b7ebec,#f9f3c8);
 }
 
+hr {
+  opacity: 1 !important;
+  border-top: 1px solid $black-color !important;
+}
+
 h1 {
   font-size: 3.5rem !important;
   color: $lapiz-lazuli-color !important;
@@ -56,7 +61,6 @@ h1 {
 
 p {
   color: $slate-gray-color !important;
-  justify-self: center !important;
   font-weight: $T500;
 }
 

@@ -1,1 +1,26 @@
-<p>Hola</p>
+<div class="container my-5">
+  <h2 class="">¡Antes que nada!</h2>
+  <p class="text-start">Tienes que hacer los siguientes 5 pasos para poder usar la Inteligencia Artificial de la mejor manera.</p>
+  <hr class="m-0">
+  <div class="stepper-container">
+    <div class="story">
+      <app-step-story [Story]="Step"></app-step-story>
+    </div>
+    <div class="steps mt-5 ms-4">
+      <ng-container [ngSwitch]="Step">
+        <ng-template [ngSwitchCase]="1">
+          <app-generate-papers-one (Current)="Step = $event.step"></app-generate-papers-one>
+        </ng-template>
+        <ng-template [ngSwitchCase]="2">
+          <app-generate-papers-two (Current)="Step = $event.step"></app-generate-papers-two>
+        </ng-template>
+        <ng-template [ngSwitchCase]="3">
+          <app-generate-papers-three (Current)="Step = $event.step"></app-generate-papers-three>
+        </ng-template>
+        <ng-template [ngSwitchCase]="4">
+          <app-generate-papers-four (Current)="Step = $event.step"></app-generate-papers-four>
+        </ng-template>
+      </ng-container>
+    </div>
+  </div>
+</div>
