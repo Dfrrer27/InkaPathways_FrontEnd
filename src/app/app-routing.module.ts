@@ -6,6 +6,7 @@ import {PublicLayoutComponent} from "./layout/public-layout/public-layout.compon
 import {HomeComponent} from "./modules/main/home/home.component";
 import {ContactUsComponent} from "./modules/main/contact-us/contact-us.component";
 import {authGuard} from "./utils/auth.guard";
+import {MainIaComponent} from "./modules/main/main-ia/main-ia.component";
 
 const routes: Routes = [
 
@@ -28,6 +29,7 @@ const routes: Routes = [
     children: [
       { path: '', component: HomeComponent },
       { path: 'contact-us', component: ContactUsComponent },
+      { path: 'main-ia', component: MainIaComponent },
     ]
   },
 

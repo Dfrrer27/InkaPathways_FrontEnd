@@ -17,6 +17,9 @@ import {MatSortModule} from '@angular/material/sort';
 import { SpinnerComponent } from './spinner/spinner.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSelectModule} from '@angular/material/select';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatOptionModule} from "@angular/material/core";
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,9 @@ import {MatSelectModule} from '@angular/material/select';
     MatProgressSpinnerModule
   ],
   exports: [
+    MatExpansionModule,
+    MatOptionModule,
+    MatStepperModule,
     MatSelectModule,
     MatProgressSpinnerModule,
     MatInputModule,
