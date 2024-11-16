@@ -1,0 +1,20 @@
+.content-dialog {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
+}
+
+.block-img {
+  height: fit-content;
+}
+
+.content-img {
+  width: 40%;
+  height: fit-content;
+  border-radius: 20px;
+}
+
+img {
+  border-radius: 20px;
+  height: 20%;
+}

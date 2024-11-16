@@ -65,9 +65,9 @@ export class AuthSignInComponent {
       this._authService.signIn(loginuser).subscribe({
         next: (token) => {
           this.loading = false;
-          localStorage.setItem('token', token);
+          localStorage.setItem('token', JSON.stringify(token));
           this.toastr.success(`Has iniciado sesión correctamente`, 'Inicio de sesión');
-          this.router.navigate(['/main/home']);
+          this.router.navigate(['/main/main-ia']);
           console.log(token);
         },
         error: (e: HttpErrorResponse) => {

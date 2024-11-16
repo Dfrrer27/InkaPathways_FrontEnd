@@ -17,17 +17,10 @@ export class GeneratePapersTwoComponent {
 
   @Output() Current = new EventEmitter();
 
-  Next(): void {
-    this.Current.emit({
-      data: 'datos 2 form',
-      next: 3
-    });
-  }
-
   Save() {
     if ( this.form.valid) {
       this.Current.emit({
-        data: 'datos 2 form',
+        data: 'datos 3 form',
         step: 3
       });
     }

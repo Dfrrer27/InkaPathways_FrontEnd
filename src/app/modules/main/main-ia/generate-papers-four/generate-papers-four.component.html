@@ -1,17 +1,26 @@
-<h4 class="text-secondary pb-2">Paso 4/5</h4>
-<h2>Conversación con la Inteligencia Artificial</h2>
-<hr>
+<div class="content-papers-four animated fadeIn">
+  <h4 class="text-secondary pb-2">Paso 4/5</h4>
+  <h2>Conversación con la Inteligencia Artificial</h2>
+  <hr>
 
-  <ng-container *ngFor="let prompts of Data">
+  <p>{{ conversationData?.pregunta }}</p>
 
-  </ng-container>
+  <div class="d-flex flex-row justify-content-center gap-5 my-5">
+    <button *ngFor="let option of [conversationData?.alternativa1, conversationData?.alternativa2, conversationData?.alternativa3, conversationData?.alternativa4]"
+            mat-raised-button color="primary"
+            class="h-auto p-3"
+            (click)="selectOption(option)">
+      {{ option }}
+    </button>
+  </div>
 
   <div class="d-flex flex-row justify-content-end gap-3 mt-5">
     <button mat-raised-button color="accent" class="mb-3 w-25 rounded" (click)="Back()">
       Volver
     </button>
-    <button type="submit" mat-raised-button color="primary" class="mb-3 w-25 rounded">
+    <button type="submit" mat-raised-button color="primary" class="mb-3 w-25 rounded" (click)="Save()" [disabled]="!nextEnabled">
       Siguiente
     </button>
   </div>
+</div>
 

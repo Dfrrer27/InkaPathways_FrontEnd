@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import { Observable } from 'rxjs';
-import { JwtHelperService } from '@auth0/angular-jwt';
+import {Observable} from 'rxjs';
+import {JwtHelperService} from '@auth0/angular-jwt';
 import {loginUser, registerUser} from "../interfaces/User";
 
 @Injectable({
@@ -28,7 +28,7 @@ export class AuthService {
   }
 
   getToken() {
-    return localStorage.getItem('token');
+    return localStorage.getItem('token')
   }
 
   logout(){

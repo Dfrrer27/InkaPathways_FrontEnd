@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-main-ia',
@@ -8,16 +7,13 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 })
 export class MainIaComponent {
 
-  isEditable = false;
-
-  constructor(private _formBuilder: FormBuilder) {}
-
   Step: number = 1;
-  PapersSave: any = {
-    stepOne: {}
-  };
+  dataFromStep3: any;
 
-  Save($event: any) {
-
+  onCurrentStep(event: { step: number, data?: any }) {
+    this.Step = event.step;
+    if (event.data) {
+      this.dataFromStep3 = event.data;
+    }
   }
 }

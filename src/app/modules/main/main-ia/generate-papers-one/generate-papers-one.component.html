@@ -1,26 +1,28 @@
-<h4 class="text-secondary pb-2">Paso 1/5</h4>
-<h2>Escoge una región</h2>
-<p>Escoge la región a donde planeas viajar para que de acuerdo a eso darte la información crucial de esa región seleccionada.</p>
-<hr>
-<form [formGroup]="form" (ngSubmit)="Save()">
+<div class="content-papers-one animated fadeIn">
+  <h4 class="text-secondary pb-2">Paso 1/5</h4>
+  <h2>Escoge una región</h2>
+  <p>Escoge la región a donde planeas viajar para que de acuerdo a eso darte la información crucial de esa región seleccionada.</p>
+  <hr>
+  <form [formGroup]="form" (ngSubmit)="Save()">
 
-  <mat-form-field appearance="outline" class="w-50 mt-4">
-    <mat-label>Escoge tu región</mat-label>
-    <mat-select formControlName="region">
-      <mat-option [value]="'Junin'">Junin</mat-option>
-    </mat-select>
-    <mat-error *ngIf="form.get('region')?.hasError('required')">
-      Escoge la región a la que vas a viajar
-    </mat-error>
-  </mat-form-field>
+    <mat-form-field appearance="outline" class="w-50 mt-4">
+      <mat-label>Escoge tu región</mat-label>
+      <mat-select formControlName="region">
+        <mat-option [value]="'Junin'">Junin</mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('region')?.hasError('required')">
+        Escoge la región a la que vas a viajar
+      </mat-error>
+    </mat-form-field>
 
-  <div class="d-flex flex-row justify-content-end gap-3 mt-5">
-    <button mat-raised-button color="accent" class="mb-3 w-25 rounded">
-      Cancelar
-    </button>
-    <button type="submit" mat-raised-button color="primary" class="mb-3 w-25 rounded" [disabled]="form.invalid">
-      Siguiente
-    </button>
-  </div>
+    <div class="d-flex flex-row justify-content-end gap-3 mt-5">
+      <button mat-raised-button color="accent" class="mb-3 w-25 rounded" (click)="Back()">
+        Cancelar
+      </button>
+      <button type="submit" mat-raised-button color="primary" class="mb-3 w-25 rounded" [disabled]="form.invalid">
+        Siguiente
+      </button>
+    </div>
 
-</form>
+  </form>
+</div>

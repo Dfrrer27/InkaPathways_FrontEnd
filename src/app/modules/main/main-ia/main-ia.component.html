@@ -1,4 +1,4 @@
-<div class="container my-5">
+<div class="container my-5 animated fadeIn">
   <h2 class="">¡Antes que nada!</h2>
   <p class="text-start">Tienes que hacer los siguientes 5 pasos para poder usar la Inteligencia Artificial de la mejor manera.</p>
   <hr class="m-0">
@@ -15,10 +15,13 @@
           <app-generate-papers-two (Current)="Step = $event.step"></app-generate-papers-two>
         </ng-template>
         <ng-template [ngSwitchCase]="3">
-          <app-generate-papers-three (Current)="Step = $event.step"></app-generate-papers-three>
+          <app-generate-papers-three (Current)="onCurrentStep($event)"></app-generate-papers-three>
         </ng-template>
         <ng-template [ngSwitchCase]="4">
-          <app-generate-papers-four (Current)="Step = $event.step"></app-generate-papers-four>
+          <app-generate-papers-four [initialData]="dataFromStep3" (Current)="onCurrentStep($event)"></app-generate-papers-four>
+        </ng-template>
+        <ng-template [ngSwitchCase]="5">
+          <app-generate-papers-five (Current)="Step = $event.step"></app-generate-papers-five>
         </ng-template>
       </ng-container>
     </div>

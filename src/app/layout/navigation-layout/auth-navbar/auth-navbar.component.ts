@@ -16,4 +16,12 @@ export class AuthNavbarComponent {
     this.router.navigate(['/auth/sign-in'])
   }
 
+  goToSection(section: string) {
+    this.router.navigateByUrl('/main/home').then(() => {
+      setTimeout(() => {
+        this.router.navigate(['/main/home'], { fragment: section });
+      }, 50);
+    });
+  }
+
 }

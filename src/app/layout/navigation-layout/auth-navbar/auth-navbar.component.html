@@ -3,7 +3,7 @@
 <nav class="navbar navbar-expand-lg animated fadeIn">
   <div class="container-fluid">
     <div>
-      <a class="navbar-brand nav-link" href="#"><span>Inka</span>Pathways</a>
+      <a class="navbar-brand nav-link" routerLink="/main/home"><span>Inka</span>Pathways</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -12,22 +12,22 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav ml-auto align-items-center">
         <li class="nav-item">
-          <a class="nav-link" href="#">Nuestra Tecnologíasss</a>
+          <a class="nav-link" role="button" (click)="goToSection('tecnologia')">Nuestra Tecnologías</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Equipo</a>
+          <a class="nav-link" role="button" (click)="goToSection('equipo')">Equipo</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/auth/sign-up">Empezar</a>
+          <a class="nav-link" routerLink="/main/main-ia">Empezar</a>
         </li>
         <li class="nav-item">
-          <a class="btn btn-contact first" href="#">Contáctanos</a>
+          <a class="btn btn-contact first" routerLink="/main/contact-us">Contáctanos</a>
         </li>
-        <li class="nav-item">
-          <button type="button" (click)="logout()" mat-icon-button>
-            <mat-icon>logout</mat-icon>
-          </button>
-        </li>
+<!--        <li class="nav-item">-->
+<!--          <button type="button" (click)="logout()" mat-icon-button>-->
+<!--            <mat-icon>logout</mat-icon>-->
+<!--          </button>-->
+<!--        </li>-->
       </ul>
     </div>
   </div>

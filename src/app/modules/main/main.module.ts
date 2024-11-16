@@ -15,6 +15,7 @@ import { GeneratePapersFourComponent } from './main-ia/generate-papers-four/gene
 import { GeneratePapersFiveComponent } from './main-ia/generate-papers-five/generate-papers-five.component';
 import { GeneratePapersSixComponent } from './main-ia/generate-papers-six/generate-papers-six.component';
 import { StepStoryComponent } from './main-ia/step-story/step-story.component';
+import { ShowLeafletComponent } from './main-ia/show-leaflet/show-leaflet.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { StepStoryComponent } from './main-ia/step-story/step-story.component';
     GeneratePapersFourComponent,
     GeneratePapersFiveComponent,
     GeneratePapersSixComponent,
-    StepStoryComponent
+    StepStoryComponent,
+    ShowLeafletComponent
   ],
   imports: [
     CommonModule,

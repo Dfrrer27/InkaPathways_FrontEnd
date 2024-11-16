@@ -1,1 +1,21 @@
-<p class="mt-5">step-story works!</p>
+<div class="stepper mt-5">
+  <div *ngFor="let step of steps; let i = index" class="step" [ngClass]="{'completed': i < Story - 1, 'active': i === Story - 1}">
+    <div class="step-circle" [ngClass]="{'completed': i < Story - 1, 'current': i === Story - 1, 'pending': i > Story - 1}">
+      <!-- Reemplazamos el número con un ícono específico para cada paso -->
+      <img [src]="step.icon" alt="icono paso {{i + 1}}">
+    </div>
+    <div class="step-content">
+      <h3>PASO {{i + 1}}</h3>
+      <h4>{{ step.label }}</h4>
+      <p class="step-status" [ngClass]="{
+        'text-success': i < Story - 1,
+        'text-primary': i === Story - 1,
+        'text-muted': i > Story - 1
+      }">
+        {{ getStepStatus(i) }}
+      </p>
+    </div>
+    <!-- Condicional para ocultar la línea después del último paso -->
+    <div *ngIf="i < steps.length - 1" class="step-line"></div>
+  </div>
+</div>

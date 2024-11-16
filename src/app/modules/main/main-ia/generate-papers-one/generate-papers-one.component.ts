@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-generate-papers-one',
@@ -9,7 +10,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class GeneratePapersOneComponent {
   form: FormGroup;
 
-  constructor( private fb: FormBuilder ) {
+  constructor( private fb: FormBuilder, private router: Router ) {
     this.form = this.fb.group({
       region: ['', Validators.required]
     })
@@ -17,19 +18,16 @@ export class GeneratePapersOneComponent {
 
   @Output() Current = new EventEmitter();
 
-  Next(): void {
-    this.Current.emit({
-      data: 'datos form',
-      next: 2
-    });
-  }
-
   Save() {
     if ( this.form.valid) {
       this.Current.emit({
-        data: 'datos form',
+        data: 'datos 2 form',
         step: 2
       });
     }
+  }
+
+  Back() {
+    this.router.navigate(['/']);
   }
 }

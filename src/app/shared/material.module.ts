@@ -20,6 +20,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatOptionModule} from "@angular/material/core";
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatProgressSpinnerModule
   ],
   exports: [
+    MatDialogModule,
     MatExpansionModule,
     MatOptionModule,
     MatStepperModule,

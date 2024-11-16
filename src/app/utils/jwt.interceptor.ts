@@ -16,10 +16,23 @@ export class JwtInterceptor implements HttpInterceptor {
   constructor(private router: Router, private _errorService: ErrorService, private authService: AuthService) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const token = this.authService.getToken();
+    const tokenData = this.authService.getToken();
 
-    if(token) {
-      request = request.clone({ setHeaders: { Authorization: `Bearer ${token}` } });
+    if (tokenData) {
+      try {
+        const tokenObj = JSON.parse(tokenData);
+        const token = tokenObj.token_verificacion;
+
+        if (token) {
+          request = request.clone({
+            setHeaders: {
+              Authorization: `Bearer ${token}`
+            }
+          });
+        }
+      } catch (error) {
+        console.error('Error al parsear el token JSON: ', error);
+      }
     }
 
     return next.handle(request).pipe(

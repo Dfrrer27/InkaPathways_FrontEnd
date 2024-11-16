@@ -29,7 +29,6 @@ const routes: Routes = [
     children: [
       { path: '', component: HomeComponent },
       { path: 'contact-us', component: ContactUsComponent },
-      { path: 'main-ia', component: MainIaComponent },
     ]
   },
 

@@ -8,8 +8,10 @@ $midnightBlue: #01102C;
 $black-color: #000;
 $white-color: #ffff;
 $gray-color: #BCBCBC;
+$french-gray-color: #B1B3B6;
 $penn-blue: #001C4F;
 $lapiz-lazuli-color: #265C7E;
+$tiffany-blue-color: #93D8C7;
 $red-color: #FF0000;
 $onyx-color: #3c3c3c21;
 $honolulu-blue-color: #0e76a8;
@@ -22,6 +24,8 @@ $slate-gray-color: #3A605D;
 $mint-color: #3CC2A1;
 $dark-cyan: #23958C;
 $celeste-color: #B3EAEB;
+$celeste-color: #B3EAEB;
+$malachite-color: #01DD4C;
 
 // Grosor de letra
 $T200: 200;
@@ -38,6 +42,7 @@ $Poppins: "Poppins", sans-serif;
   padding: 0;
   box-sizing: border-box;
 }
+
 body::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
 }

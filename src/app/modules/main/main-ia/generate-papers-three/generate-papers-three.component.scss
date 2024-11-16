@@ -12,10 +12,28 @@ h3 {
 
 img {
   border-radius: 20px;
+  height: 100%;
+}
+
+.content-papers-three {
+  min-height: 65vh;
 }
 
 .content-img {
   width: 47%;
+  box-shadow: 0 0px 50px rgb(96 96 96 / 80%);
+  transition: all 0.2s ease-in-out;
+  border-radius: 20px;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.05);
+  }
+}
+
+.img-letters {
+  background-image: url("/assets/bg-auth/bg_1.jpeg");
+  background-repeat: repeat;
 }
 
 .info-image-content {
