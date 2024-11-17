@@ -6,7 +6,7 @@ import {PublicLayoutComponent} from "./layout/public-layout/public-layout.compon
 import {HomeComponent} from "./modules/main/home/home.component";
 import {ContactUsComponent} from "./modules/main/contact-us/contact-us.component";
 import {authGuard} from "./utils/auth.guard";
-import {MainIaComponent} from "./modules/main/main-ia/main-ia.component";
+import {authNoGuard} from "./utils/auth-no.guard";
 
 const routes: Routes = [
 
@@ -14,6 +14,7 @@ const routes: Routes = [
 
   { path: 'auth',
     component: AuthLayoutComponent,
+    canActivate: [authNoGuard],
     loadChildren: () => import('./modules/auth/auth.module').then(x => x.AuthModule)
   },
 
@@ -27,8 +28,8 @@ const routes: Routes = [
     path: '',
     component: PublicLayoutComponent,
     children: [
-      { path: '', component: HomeComponent },
-      { path: 'contact-us', component: ContactUsComponent },
+      { path: '', component: HomeComponent, canActivate: [authNoGuard] },
+      { path: 'contact-us', component: ContactUsComponent, canActivate: [authNoGuard] },
     ]
   },
 
