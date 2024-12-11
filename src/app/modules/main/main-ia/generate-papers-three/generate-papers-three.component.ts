@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {ModelAIService} from "../../../../services/modelAI.services";
 
 @Component({
@@ -8,24 +8,43 @@ import {ModelAIService} from "../../../../services/modelAI.services";
 })
 export class GeneratePapersThreeComponent {
   @Output() Current = new EventEmitter();
-  Details: boolean = false;
-  selectedFood: string | null = null
+  @Input() initialData: any;
+
+  conversationData: any;
+  nextEnabled = false;
+  interactionCount = 0;
 
   constructor(private _modelAIService: ModelAIService) {}
 
-  selectFood(dish: string): void {
-    this.selectedFood = dish;
-    this.Details = true;
+  ngOnInit(): void {
+    if (this.initialData) {
+      this.conversationData = this.initialData;
+      console.log('Datos recibidos:', this.conversationData);
+    }
+  }
+
+  selectOption(option: string) {
+    this._modelAIService.responsesTheUser(option).subscribe({
+      next: (response) => {
+        console.log('respuesta del paso 3: ', response)
+        this.conversationData = response;
+        this.interactionCount++;
+
+        if (this.interactionCount >= 4) {
+          this.nextEnabled = true;
+        }
+      },
+      error: (err) => {
+        console.error("Error en la solicitud: ", err);
+      }
+    });
   }
 
   Save() {
-    if (this.selectedFood) {
-      this._modelAIService.responsesTheUser(this.selectedFood).subscribe(response => {
-        this.Current.emit({
-          step: 4,
-          data: response
-        });
-        console.log('Datos enviados desde el Paso 3: ', response);
+    if (this.nextEnabled) {
+      this.Current.emit({
+        data: 'datos 3 form',
+        step: 4
       });
     }
   }
@@ -34,9 +53,5 @@ export class GeneratePapersThreeComponent {
     this.Current.emit({
       step: 2
     });
-  }
-
-  BackToPrevious() {
-    this.Details = false;
   }
 }

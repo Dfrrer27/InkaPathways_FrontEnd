@@ -1,20 +1,101 @@
+@import 'src/styles';
+
+li {
+  width: 80%;
+  white-space: normal;
+}
+
+h5 {
+  span {
+    color: $malachite-color;
+  }
+  color: $penn-blue;
+}
+
+.header-dialog {
+  border-bottom: #EBEBEB solid 2px;
+  padding: 15px 25px;
+}
+
+.separator {
+  border: #EBEBEB solid 1px;
+  height: 32px;
+}
+
 .content-dialog {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   column-gap: 20px;
 }
 
-.block-img {
-  height: fit-content;
-}
+.template-container {
+  position: relative;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
 
-.content-img {
-  width: 40%;
-  height: fit-content;
-  border-radius: 20px;
-}
+  .template-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
 
-img {
-  border-radius: 20px;
-  height: 20%;
+  .dynamic-text {
+    position: absolute;
+    color: black;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+
+  }
+
+  #fecha-salida {
+    top: 14%;
+    left: 37.6%;
+  }
+
+  #fecha-retorno {
+    top: 17%;
+    left: 37.6%;
+  }
+
+  #idioma-guia {
+    top: 29%;
+    left: 37.6%;
+  }
+
+  #info-adultos {
+    top: 40%;
+    left: 37.6%;
+  }
+
+  #info-infantes {
+    top: 44%;
+    left: 37.6%;
+  }
+
+  #presupuesto {
+    top: 55%;
+    left: 37.6%;
+  }
+
+  #transporte {
+    top: 66%;
+    left: 37.8%;
+  }
+
+  #hotel {
+    top: 79%;
+    left: 37.8%;
+  }
+
+  #lugar-turistico {
+    top: 90%;
+    left: 37.8%;
+  }
+
+  #comidas {
+    top: 16%;
+    left: 71%;
+  }
 }

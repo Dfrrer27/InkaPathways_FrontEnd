@@ -3,14 +3,10 @@ export interface registerUser {
   apellido: string;
   correo: string;
   contraseña_hash: string;
-  region: string;
+  lugar_procedencia: string;
 }
 
 export interface loginUser {
   correo: string;
   contraseña_hash: string;
-}
-
-export interface regionsUser {
-  name: string;
 }

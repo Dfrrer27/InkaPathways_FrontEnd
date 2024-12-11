@@ -21,6 +21,8 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatOptionModule} from "@angular/material/core";
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatProgressSpinnerModule
   ],
   exports: [
+    MatNativeDateModule,
+    MatDatepickerModule,
     MatDialogModule,
     MatExpansionModule,
     MatOptionModule,

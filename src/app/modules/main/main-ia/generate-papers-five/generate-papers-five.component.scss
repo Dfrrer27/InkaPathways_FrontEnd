@@ -1,4 +1,10 @@
+@import 'src/styles';
 
+a {
+  color: $lapiz-lazuli-color !important;
+  text-decoration: underline !important;
+  cursor: pointer;
+}
 
 .content-papers-five {
   min-height: 65vh;

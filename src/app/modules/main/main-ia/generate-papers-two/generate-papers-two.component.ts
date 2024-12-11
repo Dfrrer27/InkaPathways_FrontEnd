@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {ModelAIService} from "../../../../services/modelAI.services";
 
 @Component({
   selector: 'app-generate-papers-two',
@@ -7,21 +8,25 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./generate-papers-two.component.scss']
 })
 export class GeneratePapersTwoComponent {
-  form: FormGroup;
+  @Output() Current = new EventEmitter();
+  Details: boolean = false;
+  selectedFood: string | null = null
 
-  constructor( private fb: FormBuilder ) {
-    this.form = this.fb.group({
-      mes: ['', Validators.required]
-    })
+  constructor(private _modelAIService: ModelAIService) {}
+
+  selectFood(dish: string): void {
+    this.selectedFood = dish;
+    this.Details = true;
   }
 
-  @Output() Current = new EventEmitter();
-
   Save() {
-    if ( this.form.valid) {
-      this.Current.emit({
-        data: 'datos 3 form',
-        step: 3
+    if (this.selectedFood) {
+      this._modelAIService.responsesTheUser(this.selectedFood).subscribe(response => {
+        this.Current.emit({
+          step: 3,
+          data: response
+        });
+        console.log('Datos enviados desde el Paso 3: ', response);
       });
     }
   }
@@ -30,5 +35,9 @@ export class GeneratePapersTwoComponent {
     this.Current.emit({
       step: 1
     });
+  }
+
+  BackToPrevious() {
+    this.Details = false;
   }
 }

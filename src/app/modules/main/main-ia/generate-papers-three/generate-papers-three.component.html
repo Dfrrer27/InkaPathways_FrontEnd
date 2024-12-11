@@ -1,100 +1,26 @@
-<ng-template [ngIf]="Details === false">
-  <div class="animated fadeIn">
-    <h4 class="text-secondary pb-2">Paso 3/5</h4>
-    <h2>Escoge un tema</h2>
-    <p>¡Escoge el tema de tu interés para empezar!</p>
-    <hr>
-      <h2 class="mt-5">COMIDAS</h2>
-      <div class="d-flex flex-row flex-wrap mt-3 mb-5 gap-5">
-        <div class="content-img" (click)="selectFood('Papa a la Huancaína')">
-          <img src="/assets/img/papa-huancaina.png" class="d-block w-100" alt="Papa a la Huancaína">
-        </div>
-        <div class="content-img" (click)="selectFood('Cuy Colorado')">
-          <img src="/assets/img/cuy-colorado.png" class="d-block w-100" alt="Cuy Colorado">
-        </div>
-        <div class="content-img" (click)="selectFood('Pachamanca')">
-          <img src="/assets/img/pachamanca.png" class="d-block w-100" alt="Pachamanca">
-        </div>
-      </div>
+<div class="content-papers-four animated fadeIn">
+  <h4 class="text-secondary pb-2">Paso 4/5</h4>
+  <h2>Conversación con la Inteligencia Artificial</h2>
+  <hr>
 
-      <h2>EVENTOS</h2>
-      <div class="d-flex flex-row flex-wrap my-3 mb-5 gap-5">
-        <div class="content-img" (click)="Details = true">
-          <img src="/assets/img/fiesta-yauyos.jpg" class="d-block w-100" alt="...">
-        </div>
-        <div class="content-img">
-          <img src="/assets/img/negritos-ingenio.jpg" class="d-block w-100" alt="...">
-        </div>
-        <div class="content-img">
-          <img src="/assets/img/chinchilpos-gamonales.png" class="d-block w-100" alt="...">
-        </div>
-      </div>
+  <p>{{ conversationData?.pregunta }}</p>
 
-      <h2>SITIOS TURISTICOS</h2>
-      <div class="d-flex flex-row flex-wrap my-3 mb-5 gap-5">
-        <div class="content-img">
-          <img src="/assets/bg-auth/bg_1.jpeg" class="d-block w-100" alt="...">
-        </div>
-        <div class="content-img" (click)="Details = true">
-          <img src="/assets/bg-auth/bg_5.png" class="d-block w-100" alt="...">
-        </div>
-        <div class="content-img">
-          <img src="/assets/bg-auth/bg_4.jpeg" class="d-block w-100" alt="...">
-        </div>
-      </div>
-
-      <h2>TRANSPORTE</h2>
-      <div class="d-flex flex-row flex-wrap my-3 mb-5 gap-5">
-        <div class="content-img">
-          <img src="/assets/bg-auth/bg_1.jpeg" class="d-block w-100" alt="...">
-        </div>
-        <div class="content-img" (click)="Details = true">
-          <img src="/assets/bg-auth/bg_1.jpeg" class="d-block w-100" alt="...">
-        </div>
-        <div class="content-img">
-          <img src="/assets/bg-auth/bg_1.jpeg" class="d-block w-100" alt="...">
-        </div>
-      </div>
-
-      <div class="d-flex flex-row justify-content-end gap-3 mt-5">
-        <button mat-raised-button color="accent" class="mb-3 w-25 rounded" (click)="Back()">
-          Volver
-        </button>
-      </div>
+  <div class="d-flex flex-row justify-content-center gap-5 my-5">
+    <button *ngFor="let option of [conversationData?.alternativa1, conversationData?.alternativa2, conversationData?.alternativa3, conversationData?.alternativa4]"
+            mat-raised-button color="primary"
+            class="h-auto p-3"
+            (click)="selectOption(option)">
+      {{ option }}
+    </button>
   </div>
-</ng-template>
-<ng-template [ngIf]="Details">
-  <div class="content-papers-three animated fadeIn">
-    <h4 class="text-secondary pb-2">Paso 3/5</h4>
-    <h2>Información del tema seleccionado</h2>
-    <hr>
-    <form (ngSubmit)="Save()">
-      <div class="info-image-content mt-5">
-        <img src="/assets/img/papa-huancaina.png" class="d-block w-100" alt="...">
-        <div>
-          <h3 class="text-center">Papa a la huancaína</h3>
-          <p>La papa a la huancaína, con palabras del mismo Gastón Acuario, es uno de los platos más preparados y preferidos por los peruanos. No solo por su rico sabor, sino porque además, se sirve como plato de entrada siendo el complemento ideal en muchas comidas.</p>
-          <ul>
-            <li>Consistir en papas hervidas cubiertas con una salsa picante y cremosa.</li>
-          </ul>
-          <ul>
-            <li>Elaborarse con queso fresco, ají amarillo, cebolla roja y ajo.</li>
-          </ul>
-          <ul>
-            <li>Ser reconocido por su sabor picante.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="d-flex flex-row justify-content-end gap-3 mt-5">
-        <button mat-raised-button color="accent" class="mb-3 w-25 rounded" (click)="BackToPrevious()">
-          Volver
-        </button>
-        <button type="submit" mat-raised-button color="primary" class="mb-3 w-25 rounded">
-          Siguiente
-        </button>
-      </div>
-    </form>
-  </div>
-</ng-template>
 
+  <div class="d-flex flex-row justify-content-end gap-3 mt-5">
+    <button mat-button class="mb-3 w-25 rounded" (click)="Back()">
+      Volver
+    </button>
+    <button type="submit" mat-raised-button color="primary" class="mb-3 w-25 rounded" (click)="Save()" [disabled]="!nextEnabled">
+      Siguiente
+    </button>
+  </div>
+</div>
 

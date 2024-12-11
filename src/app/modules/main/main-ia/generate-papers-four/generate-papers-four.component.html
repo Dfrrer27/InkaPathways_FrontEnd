@@ -1,26 +1,110 @@
 <div class="content-papers-four animated fadeIn">
   <h4 class="text-secondary pb-2">Paso 4/5</h4>
-  <h2>Conversación con la Inteligencia Artificial</h2>
+  <h2>Rellenar formulario</h2>
+  <p>Ahora tambien rellena el formulario para de acuerdo a eso generar un triptico con información importante de tus preferencias.</p>
   <hr>
+  <form [formGroup]="form" (ngSubmit)="Save()">
 
-  <p>{{ conversationData?.pregunta }}</p>
+    <div class="d-flex flex-row gap-4 mt-4">
+      <mat-form-field appearance="outline" class="w-50">
+        <mat-label>Escoger fecha de salida</mat-label>
+        <input matInput [matDatepicker]="pickerOne" placeholder="YYYY-MM-DD" autocomplete="off" formControlName="fecha_salida" required>
+        <mat-error *ngIf="form.get('fecha_salida')?.hasError('required')">
+          Selecciona una fecha de salida
+        </mat-error>
+        <mat-datepicker-toggle matIconSuffix [for]="pickerOne"></mat-datepicker-toggle>
+        <mat-datepicker #pickerOne></mat-datepicker>
+      </mat-form-field>
 
-  <div class="d-flex flex-row justify-content-center gap-5 my-5">
-    <button *ngFor="let option of [conversationData?.alternativa1, conversationData?.alternativa2, conversationData?.alternativa3, conversationData?.alternativa4]"
-            mat-raised-button color="primary"
-            class="h-auto p-3"
-            (click)="selectOption(option)">
-      {{ option }}
-    </button>
-  </div>
+      <mat-form-field appearance="outline" class="w-50">
+        <mat-label>Escoger fecha de retorno</mat-label>
+        <input matInput [matDatepicker]="pickerTwo" placeholder="YYYY-MM-DD" autocomplete="off" formControlName="fecha_retorno" required>
+        <mat-error *ngIf="form.get('fecha_retorno')?.hasError('required')">
+          Selecciona una fecha de retorno
+        </mat-error>
+        <mat-datepicker-toggle matIconSuffix [for]="pickerTwo"></mat-datepicker-toggle>
+        <mat-datepicker #pickerTwo></mat-datepicker>
+      </mat-form-field>
+    </div>
 
-  <div class="d-flex flex-row justify-content-end gap-3 mt-5">
-    <button mat-raised-button color="accent" class="mb-3 w-25 rounded" (click)="Back()">
-      Volver
-    </button>
-    <button type="submit" mat-raised-button color="primary" class="mb-3 w-25 rounded" (click)="Save()" [disabled]="!nextEnabled">
-      Siguiente
-    </button>
-  </div>
+    <div class="d-flex flex-row gap-4 mt-4">
+      <mat-form-field appearance="outline" class="w-50">
+        <mat-label>Presupuesto para el viaje</mat-label>
+        <input matInput type="number" class="example-right-align" placeholder="0" autocomplete="off" formControlName="presupuesto" required>
+        <mat-error *ngIf="form.get('presupuesto')?.hasError('required')">
+          Ingresa un monto de dinero
+        </mat-error>
+        <span matTextPrefix>$&nbsp;</span>
+        <span matTextSuffix>.00</span>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-25">
+        <mat-label>N° Adultos</mat-label>
+        <input matInput type="number" class="example-right-align" placeholder="0" autocomplete="off" formControlName="adultos" required>
+        <mat-error *ngIf="form.get('adultos')?.hasError('required')">
+          Ingrese un numero valido
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-25">
+        <mat-label>N° Infantes</mat-label>
+        <input matInput type="number" class="example-right-align" placeholder="0" autocomplete="off" formControlName="infantes" required>
+        <mat-error *ngIf="form.get('infantes')?.hasError('required')">
+          Ingrese un numero valido
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="d-flex flex-row gap-4 mt-4">
+      <mat-form-field appearance="outline" class="w-50">
+        <mat-label>Idioma para el guía turístico</mat-label>
+        <input matInput type="text" autocomplete="off" formControlName="idioma" required>
+        <mat-error *ngIf="form.get('idioma')?.hasError('required')">
+          Ingrese un idioma valido
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-50">
+        <mat-label>Tipo de transporte</mat-label>
+        <mat-select formControlName="transporte">
+          <mat-option [value]="'Terrestre'">Terrestre</mat-option>
+          <mat-option [value]="'Aereo'">Aéreo</mat-option>
+          <mat-option [value]="'Personal'">Personal</mat-option>
+          <mat-option [value]="'Maritimo'">Marítimo</mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('transporte')?.hasError('required')">
+          Escoge un tipo de transporte para viajar
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="d-flex flex-row gap-4 mt-4">
+      <mat-form-field appearance="outline" class="w-50">
+        <mat-label>Que sitios turisticos visitaras</mat-label>
+        <input matInput type="text" autocomplete="off" formControlName="lugares_turisticos" required>
+        <mat-error *ngIf="form.get('lugares_turisticos')?.hasError('required')">
+          Ingrese un lugar turístico valido
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-50">
+        <mat-label>En que hotel te vas a hospedar</mat-label>
+        <input matInput type="text" autocomplete="off" formControlName="hotel" required>
+        <mat-error *ngIf="form.get('hotel')?.hasError('required')">
+          Ingrese un hotel valido
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="d-flex flex-row justify-content-end gap-3 mt-5">
+      <button mat-button class="mb-3 w-25 rounded" (click)="Back()">
+        Cancelar
+      </button>
+      <button type="submit" mat-raised-button color="primary" class="mb-3 w-25 rounded" [disabled]="form.invalid">
+        Guardar
+      </button>
+    </div>
+
+  </form>
 </div>
 

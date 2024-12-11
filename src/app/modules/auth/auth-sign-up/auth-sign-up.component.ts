@@ -3,7 +3,7 @@ import {FormControl, FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {PasswordValidators} from "../../../utils/password-validators";
 import {Router} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
-import {regionsUser, registerUser} from "../../../interfaces/User";
+import {registerUser} from "../../../interfaces/User";
 import {AuthService} from "../../../services/auth.service";
 import {ErrorService} from "../../../services/error.service";
 import {HttpErrorResponse} from "@angular/common/http";
@@ -20,6 +20,14 @@ export class AuthSignUpComponent {
   loading: boolean = false;
   loaderDuration = 1000;
 
+  regiones: string[] = [
+    'Amazonas', 'Áncash', 'Apurímac', 'Arequipa', 'Ayacucho',
+    'Cajamarca', 'Callao', 'Cusco', 'Huancavelica', 'Huánuco',
+    'Ica', 'Junín', 'La Libertad', 'Lambayeque', 'Lima',
+    'Loreto', 'Madre de Dios', 'Moquegua', 'Pasco', 'Piura',
+    'Puno', 'San Martín', 'Tacna', 'Tumbes', 'Ucayali'
+  ];
+
   constructor(private toastr: ToastrService,
               private fb: FormBuilder,
               private router: Router,
@@ -30,7 +38,7 @@ export class AuthSignUpComponent {
       name: ['', [Validators.required, Validators.minLength(3)]],
       last_name: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
-      region: ['Junin', Validators.required],
+      lugar_procedencia: ['', Validators.required],
       password: ['', [
         Validators.required,
         Validators.minLength(8),
@@ -62,7 +70,7 @@ export class AuthSignUpComponent {
       correo: this.form.value.email,
       nombre: this.form.value.name,
       apellido: this.form.value.last_name,
-      region: this.form.value.region,
+      lugar_procedencia: this.form.value.lugar_procedencia,
       contraseña_hash: this.form.value.password
     }
 
@@ -100,7 +108,7 @@ export class AuthSignUpComponent {
         errorMessage = control?.hasError('required') ? 'Ingresa tu email' : '';
         break;
 
-      case 'region':
+      case 'lugar_procedencia':
         errorMessage = control?.hasError('required') ? 'Escoge tu región' : '';
         break;
 

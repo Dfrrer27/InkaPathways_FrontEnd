@@ -51,10 +51,10 @@
 
               <mat-form-field appearance="fill">
                 <mat-label class="label-font">Selecciona tu región</mat-label>
-                <mat-select formControlName="region">
-                  <mat-option [value]="'Junin'">Junin</mat-option>
+                <mat-select formControlName="lugar_procedencia">
+                  <mat-option *ngFor="let region of regiones" [value]="region">{{ region }}</mat-option>
                 </mat-select>
-                <mat-error *ngIf="form.get('region')?.hasError('required')">
+                <mat-error *ngIf="form.get('lugar_procedencia')?.hasError('required')">
                   Escoge tu región
                 </mat-error>
               </mat-form-field>
@@ -115,3 +115,5 @@
     </div>
   </div>
 </div>
+
+<app-spinner *ngIf="loading"></app-spinner>

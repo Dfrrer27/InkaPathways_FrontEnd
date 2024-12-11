@@ -8,12 +8,12 @@ import { Component } from '@angular/core';
 export class MainIaComponent {
 
   Step: number = 1;
-  dataFromStep3: any;
+  dataFromStep2: any;
 
   onCurrentStep(event: { step: number, data?: any }) {
     this.Step = event.step;
     if (event.data) {
-      this.dataFromStep3 = event.data;
+      this.dataFromStep2 = event.data;
     }
   }
 }

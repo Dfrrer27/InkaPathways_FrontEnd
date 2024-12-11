@@ -1,29 +1,31 @@
-<mat-dialog-actions align="start" class="d-flex justify-content-between">
-  <button mat-button color="primary" mat-dialog-close (click)="downloadleaflet()">
-    <img src="assets/icons/white/download.png" alt="download triptyc">
-  </button>
-<!--  <button mat-fab extended color="primary" class="mb-3 w-25 rounded" (click)="downloadleaflet()">-->
-<!--    <img class="me-2" src="assets/icons/white/download.png" alt="download triptyc">-->
-<!--    Descargar tríptico-->
-<!--  </button>-->
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Cerrar</button>
+<mat-dialog-actions align="start" class="d-flex justify-content-between header-dialog">
+  <div class="w-25 d-flex column-gap-2 align-items-center">
+    <h5 class="m-0"><span>Inka</span>Pathways</h5>
+    <p class="m-0 separator"></p>
+    <p class="m-0" role="button" (click)="downloadleaflet()">Descargar tríptico</p>
+  </div>
+  <button mat-button color="primary" [mat-dialog-close]="true">Cerrar</button>
 </mat-dialog-actions>
-<mat-dialog-content class="mat-typography content-dialog" id="showLeafletContent">
+<mat-dialog-content>
+  <div id="showLeafletContent" class="mat-typography content-dialog">
+    <div class="template-container">
+      <img src="/assets/img/triptych_template.png" alt="InkaPathways" class="template-image" />
 
-  <div>
-    <p *ngFor="let respuesta of respuestas">{{ respuesta }}</p>
+        <div class="dynamic-text" id="fecha-salida">Fecha de salida: {{ leafletData.fecha_salida }}</div>
+        <div class="dynamic-text" id="fecha-retorno">Fecha de retorno: {{ leafletData.fecha_retorno }}</div>
+        <div class="dynamic-text" id="idioma-guia">Idioma: {{ leafletData.idioma  }}</div>
+        <div class="dynamic-text" id="info-adultos">Adultos: {{ leafletData.adultos }} personas</div>
+        <div class="dynamic-text" id="info-infantes">Infantes: {{ leafletData.infantes }} infantes</div>
+        <div class="dynamic-text" id="presupuesto">Cantidad de dinero: {{ leafletData.presupuesto | currency }}</div>
+        <div class="dynamic-text" id="transporte">Tipo de Transporte seleccionado: {{ leafletData.transporte }}</div>
+        <div class="dynamic-text" id="hotel">Hotel seleccionado: {{ leafletData.hotel }}</div>
+        <div class="dynamic-text" id="lugar-turistico">Lugar Turístico seleccionado: {{ leafletData.lugares_turisticos  }}</div>
+        <div class="dynamic-text" id="comidas">
+          <ul>
+            <li *ngFor="let item of predictionData">{{ item.respuesta }}</li>
+          </ul>
+        </div>
+
+    </div>
   </div>
-
-  <div class="d-flex flex-row flex-wrap mb-5 gap-5 block-img">
-    <div class="content-img">
-      <img src="/assets/img/papa-huancaina.png" class="d-block w-100" alt="Papa a la Huancaína">
-    </div>
-    <div class="content-img">
-      <img src="/assets/img/cuy-colorado.png" class="d-block w-100" alt="Cuy Colorado">
-    </div>
-    <div class="content-img">
-      <img src="/assets/img/pachamanca.png" class="d-block w-100" alt="Pachamanca">
-    </div>
-  </div>
-
 </mat-dialog-content>

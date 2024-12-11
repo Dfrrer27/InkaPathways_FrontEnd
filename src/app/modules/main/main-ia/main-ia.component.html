@@ -11,14 +11,17 @@
         <ng-template [ngSwitchCase]="1">
           <app-generate-papers-one (Current)="Step = $event.step"></app-generate-papers-one>
         </ng-template>
+<!--        <ng-template [ngSwitchCase]="2">-->
+<!--          <app-generate-papers-two (Current)="Step = $event.step"></app-generate-papers-two>-->
+<!--        </ng-template>-->
         <ng-template [ngSwitchCase]="2">
-          <app-generate-papers-two (Current)="Step = $event.step"></app-generate-papers-two>
+          <app-generate-papers-two (Current)="onCurrentStep($event)"></app-generate-papers-two>
         </ng-template>
         <ng-template [ngSwitchCase]="3">
-          <app-generate-papers-three (Current)="onCurrentStep($event)"></app-generate-papers-three>
+          <app-generate-papers-three [initialData]="dataFromStep2" (Current)="onCurrentStep($event)"></app-generate-papers-three>
         </ng-template>
         <ng-template [ngSwitchCase]="4">
-          <app-generate-papers-four [initialData]="dataFromStep3" (Current)="onCurrentStep($event)"></app-generate-papers-four>
+          <app-generate-papers-four (Current)="Step = $event.step"></app-generate-papers-four>
         </ng-template>
         <ng-template [ngSwitchCase]="5">
           <app-generate-papers-five (Current)="Step = $event.step"></app-generate-papers-five>

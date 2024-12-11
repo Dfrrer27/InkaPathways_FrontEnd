@@ -10,9 +10,9 @@ export class StepStoryComponent {
 
   steps = [
     { icon: 'assets/icons/white/gesture_select.png', label: 'Escoger Región' },
-    { icon: 'assets/icons/white/event_upcoming.png', label: 'Escoger Mes' },
     { icon: 'assets/icons/white/person_play.png', label: 'Escoger Evento' },
     { icon: 'assets/icons/white/psychology.png', label: 'Conversación' },
+    { icon: 'assets/icons/white/form.png', label: 'Formulario' },
     { icon: 'assets/icons/white/document_scanner.png', label: 'Creación de Tríptico' }
   ];
 
